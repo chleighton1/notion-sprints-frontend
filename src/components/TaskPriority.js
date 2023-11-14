@@ -5,10 +5,11 @@ import {
   Tooltip,
   Legend,
   Colors,
+  Title,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend, Colors);
+ChartJS.register(ArcElement, Tooltip, Legend, Colors, Title);
 
 export default function TaskPriority(props) {
   const priority = props.sprintDB.reduce(function (obj, item) {
@@ -19,7 +20,10 @@ export default function TaskPriority(props) {
     return obj;
   }, {});
 
-  console.log(props.sprintDB);
+  if (priority[""]) {
+    priority["Unassigned"] = priority[""];
+    delete priority[""];
+  }
 
   const data = {
     labels: Object.keys(priority),
@@ -27,6 +31,7 @@ export default function TaskPriority(props) {
       {
         data: Object.values(priority),
         hoverOffset: 4,
+        backgroundColor: ["#ffcd56", "#ff6384", "#4cc0c0", "#c9cbcf"],
       },
     ],
   };
@@ -53,28 +58,7 @@ export default function TaskPriority(props) {
 
   return (
     <div>
-      <Doughnut
-        options={{
-          layout: {
-            padding: {
-              top: 0,
-            },
-          },
-          plugins: {
-            title: {
-              display: true,
-              font: {
-                size: 20,
-              },
-              text: "Work by Priority",
-            },
-            legend: {
-              position: "bottom",
-            },
-          },
-        }}
-        data={data}
-      ></Doughnut>
+      <Doughnut options={options} data={data}></Doughnut>
     </div>
   );
 }

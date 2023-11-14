@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 =  62.5% */
+  /* Percentage of users browser font-size setting */
+  font-size: 62.5%;
+
+  /* Does NOT work on Safari */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #666;
+  overflow-x: hidden;
+  background-color: #f2f5f8;
+}
+
+select {
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5rem;
+  padding: 0.5rem 3.5rem 0.5rem 1rem;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 10rem;
+}
+
+.sprint {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 0;
+}
+
+.chart-col {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+#sprint-name {
+  font-weight: 600;
+  margin-right: 2rem;
+  margin-bottom: 0;
+}
+
+#sprint-dates {
+  margin-bottom: 0;
+}
+
+/* .charts {
+      display: flex;
+      justify-content: space-around;
+    } */
+
+#userWorkloadChart {
+  height: 150;
+  width: 300;
+}
+
+.chart-div {
+  background-color: #f6f8fa;
+  padding: 4rem;
+  border-radius: 4%;
+  border: #a9acae 2px solid;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 100%; /* Ensure the chart-div takes up the full height */
+}
+
+.gauge-chart-div {
+  background-color: #f6f8fa;
+  padding: 4rem;
+  border-radius: 4%;
+  border: #a9acae 2px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 100%; /* Ensure the chart-div takes up the full height */
+}
+
+.chart-div:first {
+  display: flex;
+  justify-content: center;
+}
+
+.estimates-chart {
+  width: 100%;
+  height: 300px;
+  background-color: #f6f8fa;
+  padding: 3rem;
+  border-radius: 2%;
+  border: #a9acae 2px solid;
+  margin-bottom: 4rem;
+}
+
+.gauge-chart-title {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.gauge-chart-label {
+  font-size: 18px;
+}

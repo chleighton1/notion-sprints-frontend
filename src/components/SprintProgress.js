@@ -8,9 +8,17 @@ import {
   LinearScale,
   Tooltip,
   Legend,
+  Title,
 } from "chart.js";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+ChartJS.register(
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+  Title
+);
 
 export default function SprintProgress(props) {
   const sprintStartDate = DateTime.fromISO(
@@ -24,6 +32,8 @@ export default function SprintProgress(props) {
     sprintStartDate,
     sprintEndDate
   );
+
+  console.log(props.currentSprint);
 
   const options = {
     indexAxis: "y",
@@ -98,7 +108,7 @@ export default function SprintProgress(props) {
 
   return (
     <div>
-      <Bar type="line" options={options} data={data}></Bar>
+      <Bar className="canvas" type="line" options={options} data={data}></Bar>
     </div>
   );
 }

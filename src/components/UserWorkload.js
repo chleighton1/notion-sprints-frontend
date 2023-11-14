@@ -5,10 +5,11 @@ import {
   Tooltip,
   Legend,
   Colors,
+  Title,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend, Colors);
+ChartJS.register(ArcElement, Tooltip, Legend, Colors, Title);
 
 export default function UserWorkload(props) {
   const userWorkload = props.sprintDB.reduce(function (obj, item) {
