@@ -55,6 +55,7 @@ body {
   grid-template-rows: 4fr 6fr; /* Two rows, each with auto height */
   gap: 10px; /* Adjust the gap between items as needed */
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .grid-item:nth-child(1) {
