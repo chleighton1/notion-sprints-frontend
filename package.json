@@ -10,10 +10,12 @@
     "luxon": "^3.4.3",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
+    "react-countup": "^6.5.0",
     "react-dom": "^18.2.0",
     "react-gauge-chart": "^0.4.1",
     "react-gauge-component": "^1.1.22",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

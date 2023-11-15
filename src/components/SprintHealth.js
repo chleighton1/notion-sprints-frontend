@@ -26,10 +26,10 @@ export default function SprintHealth(props) {
     value: 0,
     title: "",
   };
-  if (variance < -10) {
+  if (variance < -35) {
     values.value = 0.4;
     values.title = "Poor";
-  } else if (Math.abs(variance) <= 10) {
+  } else if (variance < -15) {
     values.value = 0.7;
     values.title = "Good";
   } else {

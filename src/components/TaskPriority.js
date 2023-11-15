@@ -8,6 +8,7 @@ import {
   Title,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import "../styles.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors, Title);
 
@@ -25,13 +26,26 @@ export default function TaskPriority(props) {
     delete priority[""];
   }
 
+  const colors = {
+    High: "#ff6384",
+    Medium: "#ffcd56",
+    Low: "#4cc0c0",
+    Unassigned: "#c9cbcf",
+  };
+
+  const chartData = Object.entries(priority).map(([key, value]) => ({
+    title: key,
+    count: value,
+    color: colors[key],
+  }));
+
   const data = {
-    labels: Object.keys(priority),
+    labels: chartData.map((obj) => obj["title"]),
     datasets: [
       {
-        data: Object.values(priority),
+        data: chartData.map((obj) => obj["count"]),
         hoverOffset: 4,
-        backgroundColor: ["#ffcd56", "#ff6384", "#4cc0c0", "#c9cbcf"],
+        backgroundColor: chartData.map((obj) => obj["color"]),
       },
     ],
   };
@@ -57,7 +71,7 @@ export default function TaskPriority(props) {
   };
 
   return (
-    <div>
+    <div class="chart-div">
       <Doughnut options={options} data={data}></Doughnut>
     </div>
   );

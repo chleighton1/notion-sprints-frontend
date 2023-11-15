@@ -1,6 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { DateTime } from "luxon";
+import "../styles.css";
 import {
   Chart as ChartJS,
   BarElement,
@@ -107,7 +108,7 @@ export default function SprintProgress(props) {
   }
 
   return (
-    <div>
+    <div class="chart-div">
       <Bar className="canvas" type="line" options={options} data={data}></Bar>
     </div>
   );

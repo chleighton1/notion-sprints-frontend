@@ -1,15 +1,26 @@
 import React from "react";
 import {
   Chart as ChartJS,
-  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
   Legend,
   Colors,
-  Title,
 } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
+import "../styles.css";
 
-ChartJS.register(ArcElement, Tooltip, Legend, Colors, Title);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  Colors
+);
 
 export default function UserWorkload(props) {
   const userWorkload = props.sprintDB.reduce(function (obj, item) {
@@ -20,22 +31,31 @@ export default function UserWorkload(props) {
     return obj;
   }, {});
 
+  console.log(Object.values(userWorkload));
+
   const data = {
     labels: Object.keys(userWorkload),
     datasets: [
       {
+        label: "Tasks per User",
         data: Object.values(userWorkload),
-        hoverOffset: 4,
+        backgroundColor: [
+          "#ece7f2",
+          "#d0d1e6",
+          "#a6bddb",
+          "#74a9cf",
+          "#3690c0",
+          "#0570b0",
+          "#045a8d",
+          "#023858",
+        ],
       },
     ],
   };
 
   const options = {
-    layout: {
-      padding: {
-        top: 0,
-      },
-    },
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -48,11 +68,16 @@ export default function UserWorkload(props) {
         position: "bottom",
       },
     },
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
   };
 
   return (
-    <div>
-      <Pie options={options} data={data}></Pie>
+    <div class="bar-chart">
+      <Bar options={options} data={data}></Bar>
     </div>
   );
 }
