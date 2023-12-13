@@ -17,21 +17,19 @@ function App() {
   const [sprintName, setSprintName] = useState("Not set");
   const [sprintStartDate, setSprintStartDate] = useState("");
   const [sprintEndDate, setSprintEndDate] = useState("");
-  const [realplyClicked, setRealplyClicked] = useState(true); // Set the initial state for button 1
-  const [socailprClicked, setSocialPRClicked] = useState(false);
+  const [teamOneClicked, setTeamOneClicked] = useState(true); // Set the initial state for button 1
+  const [teamTwoClicked, setTeamTwoClicked] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response;
-        if (realplyClicked) {
+        if (teamOneClicked) {
           setLoading(true);
-          response = await fetch(`${process.env.REACT_APP_URL}/getRealplyData`);
-        } else if (socailprClicked) {
+          response = await fetch(`${process.env.REACT_APP_URL}/getTeamOneData`);
+        } else if (teamTwoClicked) {
           setLoading(true);
-          response = await fetch(
-            `${process.env.REACT_APP_URL}/getSocialPRData`
-          );
+          response = await fetch(`${process.env.REACT_APP_URL}/getTeamTwoData`);
         }
 
         if (response.ok) {
@@ -66,15 +64,15 @@ function App() {
     };
 
     fetchData();
-  }, [realplyClicked, socailprClicked]);
+  }, [teamOneClicked, teamTwoClicked]);
 
   const handleButtonClick = (buttonNumber) => {
     if (buttonNumber === 1) {
-      setRealplyClicked(true);
-      setSocialPRClicked(false);
+      setTeamOneClicked(true);
+      setTeamTwoClicked(false);
     } else {
-      setRealplyClicked(false);
-      setSocialPRClicked(true);
+      setTeamOneClicked(false);
+      setTeamTwoClicked(true);
     }
   };
 
@@ -90,16 +88,16 @@ function App() {
             <button
               className="button"
               onClick={() => handleButtonClick(1)}
-              disabled={realplyClicked}
+              disabled={teamOneClicked}
             >
-              Realply
+              Team One
             </button>
             <button
               className="button"
               onClick={() => handleButtonClick(2)}
-              disabled={socailprClicked}
+              disabled={teamTwoClicked}
             >
-              Social PR
+              Team Two
             </button>
           </div>
           <div class="sprint">
