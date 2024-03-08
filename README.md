@@ -21,6 +21,12 @@ This app was created for CEO and board members so they can visualize the sprint 
 
 ### Links
 
+
+
+https://github.com/chleighton1/notion-sprints-frontend/assets/60336791/6ce5d5ce-5957-4ab9-8959-64161f28aac8
+
+
+
 ### Built with
 
 - [React](https://reactjs.org/) - JS library
